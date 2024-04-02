@@ -1,0 +1,41 @@
+{
+  "name": "Search Engine vs Online Retailer",
+  "children": [
+    {
+      "name": "Search Engine",
+      "children": [
+        {
+          "name": "Branded vs Generic",
+          "children": [
+            {
+              "name": "Branded",
+              "loc": 21.82
+            },
+            {
+              "name": "Generic",
+              "loc": 78.18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Online Retailer",
+      "children": [
+        {
+          "name": "Branded vs Generic",
+          "children": [
+            {
+              "name": "Branded",
+              "loc": 18.64
+            },
+            {
+              "name": "Generic",
+              "loc": 81.36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
