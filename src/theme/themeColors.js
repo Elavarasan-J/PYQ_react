@@ -24,11 +24,12 @@ export const themeColors = {
   // secondary50: "#faeae8",
 
   // Success
-  successLight: "#81c784",
-  successMain: "#2e7d32",
-  successDark: "#1b5e20",
-  success200: "#a5d6a7",
-  success800: "#859303",
+  successLight: "#c7e8c5",
+  successMain: "#33a632",
+  successDark: "#259427",
+  success200: "#a2daa0",
+  success800: "#16831b",
+  success50: "#e7f6e7",
 
   // Error
   // errorMain: "#d32f2f",

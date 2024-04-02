@@ -2,6 +2,7 @@ export const themeTypography = (theme) => {
   return {
     fontFamily: theme.customization.fontFamily,
     fontSize: theme.customization.fontSize,
+    htmlFontSize: 10,
     h6: {
       fontWeight: 500,
       color: theme.heading,
@@ -40,6 +41,9 @@ export const themeTypography = (theme) => {
       color: theme.heading,
       fontWeight: 700,
       letterSpacing: "0.3rem",
+      "@media (max-width:600px)": {
+        fontSize: "3.5rem",
+      },
     },
     subtitle1: {
       fontSize: "2rem",
@@ -59,9 +63,9 @@ export const themeTypography = (theme) => {
       lineHeight: 1.2,
     },
     body1: {
-      fontSize: "2rem",
+      fontSize: "1.8rem",
       fontWeight: 400,
-      lineHeight: 1.2,
+      lineHeight: 1.25,
       color: theme.heading,
     },
     body2: {
@@ -72,6 +76,8 @@ export const themeTypography = (theme) => {
     },
     button: {
       //textTransform: "capitalize",
+      textTransform: "none",
+      borderRadius: theme.customization.borderRadius,
     },
     customInput: {
       marginTop: 8,

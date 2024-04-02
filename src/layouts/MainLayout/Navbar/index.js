@@ -27,8 +27,10 @@ import NavLogo from "./NavLogo";
 import { IconShoppingBag } from "@tabler/icons-react";
 import SocialIcons from "./SocialIcons";
 import HeroSection from "./HeroSection";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { cartItems } = useSelector((state) => state.app);
   return (
     <>
       <SocialIcons />
@@ -54,7 +56,7 @@ const Navbar = () => {
               <NavLogo />
               <Badge
                 sx={{ "& .MuiBadge-badge": { fontSize: "1.4rem" } }}
-                badgeContent={4}
+                badgeContent={cartItems.length ? cartItems.length : "0"}
                 color="primary"
               >
                 <IconShoppingBag width={30} height={30} color="#ffffff" />

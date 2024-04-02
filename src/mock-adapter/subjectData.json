@@ -1,0 +1,77 @@
+[
+    {
+      "topic": "Social Justice Social Harmony Reservation",
+      "keywords": [
+        {
+          "id": 1,
+          "name": "Endowment Act",
+          "count": 142
+        },
+        {
+          "id": 2,
+          "name": "Inclusive growth",
+          "count": 112
+        },
+        {
+          "id": 3,
+          "name": "Savitribai Phule",
+          "count": 18
+        }, 
+        {
+            "id": 4,
+            "name": "Social Justice for a Fair Globalization",
+            "count": 25
+        }
+      ]
+    },
+    {
+      "topic": "Human Development Indicators in Tamil Nadu",
+      "keywords": [
+        {
+          "id": 5,
+          "name": "Policy",
+          "count": 142
+        },
+        {
+          "id": 6,
+          "name": "Population",
+          "count": 50
+        },
+        {
+          "id":7,
+          "name": "Income",
+          "count": 40
+        },
+        {
+            "id": 48,
+            "name": "Trade",
+            "count": 40
+        },
+        {
+            "id": 9,
+            "name": "Ambedkar",
+            "count": 40
+        },
+        {
+            "id": 10,
+            "name": "Gold",
+            "count": 40
+        },
+        {
+            "id": 11,
+            "name": "Census",
+            "count": 40
+        },
+        {
+            "id": 12,
+            "name": "Expenditure",
+            "count": 40
+        },
+        {
+            "id": 13,
+            "name": "Niti Aayog",
+            "count": 40
+        }
+      ]
+    }
+]

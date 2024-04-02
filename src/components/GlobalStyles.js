@@ -16,14 +16,15 @@ const globalUseStyles = makeStyles((theme) => ({
       borderRadius: "8px",
     },
   },
-  activeState: {
-    backgroundColor: `${theme.palette.primary.light} !important`,
-    color: `${theme.palette.primary.dark} !important`,
-  },
+  // activeState: {
+  //   backgroundColor: `${theme.palette.primary.light} !important`,
+  //   color: `${theme.palette.primary.dark} !important`,
+  // },
   autoCompleteDropdown: {
+    color: theme.palette.common.black,
     marginTop: "1px",
-    border: `1px solid ${config.borderColor}`,
-    borderRadius: `${config.borderRadiusSmall}`,
+    // border: `1px solid #cccccc`,
+    // borderRadius: `${config.borderRadiusSmall}`,
   },
   exportButton: {
     position: "absolute",

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <FeatureSection />
-      <div class="d-block py-30 py-xxl-50"></div>
+      <div className="d-block py-30 py-xxl-50"></div>
       <CraftSection />
     </>
   );

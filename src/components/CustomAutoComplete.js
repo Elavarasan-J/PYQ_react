@@ -36,8 +36,8 @@ const CustomAutoComplete = ({
           )}
           <TextField
             {...params}
-            color="secondary"
-            variant="outlined"
+            color="primary"
+            variant="filled"
             placeholder={`Choose ${attributeName}`}
             label={`${attributeName}`}
           />

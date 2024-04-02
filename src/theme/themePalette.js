@@ -29,6 +29,7 @@ export const themePalette = (theme) => {
       main: theme.colors.successMain,
       light: theme.colors.successLight,
       dark: theme.colors.successDark,
+      50: theme.colors.success50,
     },
     grey: {
       50: theme.colors.grey50,
@@ -50,12 +51,21 @@ export const themePalette = (theme) => {
       default: theme.backgroundDefault,
     },
     action: {
-      hover: theme.customization.backgroundColor,
+      hover: theme.colors.primaryLight,
       //selectedOpacity: 0.05,
-      focus: theme.colors.secondaryDark,
+      focus: theme.colors.primaryDark,
       //focusOpacity: 1,
       // selected: theme.colors.secondaryDark,
-      // selectedOpacity: 1,
+      selectedOpacity: 0.4,
     },
+
+    // action: {
+    //   hover: theme.customization.backgroundColor,
+    //   //selectedOpacity: 0.05,
+    //   focus: theme.colors.secondaryDark,
+    //   //focusOpacity: 1,
+    //   // selected: theme.colors.secondaryDark,
+    //   // selectedOpacity: 1,
+    // },
   };
 };

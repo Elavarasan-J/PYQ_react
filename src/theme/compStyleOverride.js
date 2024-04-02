@@ -18,8 +18,19 @@ export const compStyleOverride = (theme) => {
     MuiButton: {
       styleOverrides: {
         sizeMedium: {
-          paddingTop: "8px",
-          paddingBottom: "9px",
+          // paddingTop: "8px",
+          // paddingBottom: "9px",
+        },
+      },
+    },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {},
+        sizeMedium: {
+          padding: "6px 15px",
+        },
+        sizeSmall: {
+          padding: "5px 15px",
         },
       },
     },
@@ -134,38 +145,53 @@ export const compStyleOverride = (theme) => {
         },
       },
     },
-    MuiOutlinedInput: {
+    // MuiOutlinedInput: {
+    //   styleOverrides: {
+    //     root: {
+    //       background: theme.colors.grey50,
+    //       borderRadius: theme.customization.borderRadius + "px",
+    //       "& .MuiOutlinedInput-notchedOutline": {
+    //         borderColor: theme.colors.grey400,
+    //       },
+    //       "&:hover $notchedOutline": {
+    //         borderColor: theme.colors.primaryLight,
+    //       },
+    //       "&.MuiInputBase-multiline": {
+    //         padding: 1,
+    //       },
+    //     },
+    //     input: {
+    //       fontWeight: 500,
+    //       background: theme.colors.grey50,
+    //       padding: "15.5px 14px",
+    //       borderRadius: theme.customization.borderRadius + "px",
+    //       "&.MuiInputBase-inputSizeSmall": {
+    //         padding: "10px 14px",
+    //         "&.MuiInputBase-inputAdornedStart": {
+    //           paddingLeft: 0,
+    //         },
+    //       },
+    //     },
+    //     inputAdornedStart: {
+    //       paddingLeft: 4,
+    //     },
+    //     notchedOutline: {
+    //       borderRadius: theme.customization.borderRadius + "px",
+    //     },
+    //   },
+    // },
+
+    MuiFilledInput: {
       styleOverrides: {
         root: {
-          background: theme.colors.grey50,
-          borderRadius: theme.customization.borderRadius + "px",
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.colors.grey400,
+          backgroundColor: `${theme.colors.paper} !important`,
+          borderRadius: theme.customization.borderRadius,
+          "&:before": {
+            borderBottom: "0 !important",
           },
-          "&:hover $notchedOutline": {
-            borderColor: theme.colors.primaryLight,
+          "&:after": {
+            borderBottom: "0 !important",
           },
-          "&.MuiInputBase-multiline": {
-            padding: 1,
-          },
-        },
-        input: {
-          fontWeight: 500,
-          background: theme.colors.grey50,
-          padding: "15.5px 14px",
-          borderRadius: theme.customization.borderRadius + "px",
-          "&.MuiInputBase-inputSizeSmall": {
-            padding: "10px 14px",
-            "&.MuiInputBase-inputAdornedStart": {
-              paddingLeft: 0,
-            },
-          },
-        },
-        inputAdornedStart: {
-          paddingLeft: 4,
-        },
-        notchedOutline: {
-          borderRadius: theme.customization.borderRadius + "px",
         },
       },
     },

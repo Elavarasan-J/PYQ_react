@@ -11,7 +11,7 @@ const CraftSection = () => {
             by <strong>A for AI</strong> team
           </Typography>
           <hr />
-          <ul class="team-list m-0 p-0">
+          <ul className="team-list m-0 p-0">
             <li>
               <a
                 href="https://www.linkedin.com/in/aswinmurugesh"
