@@ -1,24 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  Tab,
-  Tabs,
-  Container,
-  Grid,
-  IconButton,
-  Typography,
-  Alert,
-  ToggleButtonGroup,
-  ToggleButton,
-  Divider,
-} from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 
 import { IconShoppingBagPlus, IconShoppingBagX } from "@tabler/icons-react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateCartItems } from "../../../redux/app/appSlice";
+import {
+  updateCartActions,
+  updateCartItems,
+} from "../../../redux/app/appSlice";
 
 const KeywordItem = ({ keyword }) => {
   const { id, name, count } = keyword;
@@ -26,13 +16,22 @@ const KeywordItem = ({ keyword }) => {
   const dispatch = useDispatch();
 
   // CLICK - Add to cart button
-  const handeAddToCart = (id) => {
-    dispatch(updateCartItems({ action: "ADD", id }));
+  const handleAddToCart = (id) => {
+    const tempObj = {};
+    tempObj["action"] = "ADD";
+    tempObj["id"] = id;
+    tempObj["name"] = name;
+
+    dispatch(updateCartItems(tempObj));
   };
 
   // CLICK - Remove Cart button
   const handeRemoveFromCart = (id) => {
-    dispatch(updateCartItems({ action: "REMOVE", id }));
+    const tempObj = {};
+    tempObj["action"] = "REMOVE";
+    tempObj["id"] = id;
+
+    dispatch(updateCartItems(tempObj));
   };
 
   return (
@@ -64,7 +63,7 @@ const KeywordItem = ({ keyword }) => {
               backgroundColor: (theme) =>
                 `${theme.palette.success[50]} !important`,
             }}
-            onClick={() => handeAddToCart(id)}
+            onClick={() => handleAddToCart(id)}
           >
             <IconShoppingBagPlus width={20} height={20} />
           </IconButton>

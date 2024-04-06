@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { disableInitialLoading } from "../../redux/app/appSlice";
 import Footer from "./Footer";
+import Modals from "./Modals";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -38,6 +39,7 @@ const MainLayout = ({}) => {
             <Outlet />
           </div>
           <Footer />
+          <Modals />
         </>
       )}
     </>

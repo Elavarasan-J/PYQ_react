@@ -124,7 +124,6 @@ hr {
 }
 .main-section {
   background: url("../images/tab-pattern.svg") repeat;
-  background-position: top center;
 }
 @media (max-width: 767px) {
   .custom-tabs {

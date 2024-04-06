@@ -37,8 +37,10 @@ export const compStyleOverride = (theme) => {
     MuiTableCell: {
       styleOverrides: {
         root: {
-          borderColor: `#e7ddd1`, //#efe5d8, e7ddd1, ebe3db
-          padding: "18px 15px",
+          // padding: "18px 15px",
+          fontSize: "1.8rem",
+          lineHeight: 1.2,
+          color: "#000000",
         },
       },
     },
@@ -255,8 +257,8 @@ export const compStyleOverride = (theme) => {
       styleOverrides: {
         root: {
           fontWeight: 600,
-          fontSize: "16px",
-          lineHeight: "22px",
+          // fontSize: "16px",
+          // lineHeight: "22px",
           color: theme.colors.primaryMain,
         },
       },

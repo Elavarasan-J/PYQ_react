@@ -23,5 +23,3 @@ export const pageId = {
   FEEDBACK_TYPE_1: "FEEDBACK_TYPE_1",
   NEEDS_TYPE_1: "NEEDS_TYPE_1",
 };
-
-export const botURL = "https://bot-smartivity.ongil.ai/";

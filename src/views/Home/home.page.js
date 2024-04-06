@@ -34,7 +34,10 @@ import {
 // MOCK DATA
 import SUBJECT_DATA from "../../mock-adapter/subjectData.json";
 import TopicGroup from "./TopicGroup";
-import { validateArrayData } from "../../utils";
+import { validateArrayData, validateObjectData } from "../../utils";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCartActions } from "../../redux/app/appSlice";
+import CustomSnackbar from "../../components/CustomSnackbar";
 
 const subjectAccessList = [
   "Development Administration in Tamil Nadu",
@@ -52,24 +55,16 @@ const subjectAccessList = [
 ];
 
 const HomePage = () => {
-  const initialState = {
-    keywordType: "PAID",
-  };
-  const [state, setState] = useState(initialState);
+  const { cartActions } = useSelector((state) => state.app);
   const [activePanel, setActivePanel] = React.useState(0);
+
+  const dispatch = useDispatch();
 
   const handleChange = (e, newValue) => {
     console.log("newValue", newValue);
     setActivePanel(newValue);
   };
 
-  // CHANGE- Keyword Type
-  const handleKeywordTypeChange = (event, newValue) => {
-    setState((prev) => ({
-      ...prev,
-      keywordType: newValue,
-    }));
-  };
   return (
     <Page title={"AI Powered TNPSC PYQ"}>
       <Box className="custom-tabs">
@@ -150,7 +145,7 @@ const HomePage = () => {
                   />
                 </Grid>
                 <Grid item md={4} textAlign={"right"}>
-                  <ToggleButtonGroup
+                  {/* <ToggleButtonGroup
                     value={state.keywordType}
                     exclusive
                     onChange={handleKeywordTypeChange}
@@ -176,13 +171,13 @@ const HomePage = () => {
                     <ToggleButton disableRipple size="small" value="FREE">
                       <IconDiscount2Off style={{ marginRight: "5px" }} /> Free
                     </ToggleButton>
-                  </ToggleButtonGroup>
+                  </ToggleButtonGroup> */}
                 </Grid>
               </Grid>
 
               <Alert
                 sx={{ fontWeight: 400, py: "3px" }}
-                severity="success"
+                severity="info"
                 variant="filled"
                 icon={false}
               >
@@ -193,10 +188,11 @@ const HomePage = () => {
                 ? SUBJECT_DATA.map((item, index) => (
                     <TopicGroup key={index} data={item} />
                   ))
-                : "Found 0 keywords"}
+                : null}
             </div>
           </Container>
         </div>
+        {/* All Keywords Tab  */}
         <div
           role="tabpanel"
           className="py-30 py-xl-50"
@@ -206,7 +202,28 @@ const HomePage = () => {
             Advanced Search 2 <Button variant="contained">Button</Button>
           </Container>
         </div>
+        {/* Advanced Search Tab  */}
       </Box>
+
+      {/* Cart action snackbar - "ADD" or "REMOVE" */}
+      {validateObjectData(cartActions) && (
+        <CustomSnackbar
+          open={validateObjectData(cartActions)}
+          severity={"success"}
+          alertTitle={cartActions.title}
+          alertText={cartActions.message}
+          position={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          onClose={(event, reason) => {
+            if (reason === "clickaway") {
+              return;
+            }
+            dispatch(clearCartActions({}));
+          }}
+        />
+      )}
     </Page>
   );
 };

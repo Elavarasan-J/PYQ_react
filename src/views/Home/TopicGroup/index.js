@@ -1,23 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {
-  Box,
-  Button,
-  Tab,
-  Tabs,
-  Container,
-  Grid,
-  IconButton,
-  Typography,
-  Alert,
-  ToggleButtonGroup,
-  ToggleButton,
-  Divider,
-} from "@mui/material";
-import { validateArrayData, validateString } from "../../../utils";
+import { Grid } from "@mui/material";
+import { validateArrayData, validateObjectData } from "../../../utils";
 import KeywordItem from "./KeywordItem";
 import TopicHeader from "./TopicHeader";
+import CustomSnackbar from "../../../components/CustomSnackbar";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCartActions } from "../../../redux/app/appSlice";
 
 const TopicGroup = ({ data }) => {
   const { topic, keywords } = data;

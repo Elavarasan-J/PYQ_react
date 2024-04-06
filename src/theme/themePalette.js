@@ -9,6 +9,7 @@ export const themePalette = (theme) => {
       main: theme.colors.primaryMain,
       light: theme.colors.primaryLight,
       dark: theme.colors.primaryDark,
+      800: theme.colors.primary800,
     },
     secondary: {
       main: theme.colors.secondaryMain,
@@ -43,6 +44,7 @@ export const themePalette = (theme) => {
     text: {
       primary: theme.colors.primaryMain,
       secondary: theme.colors.secondaryMain,
+      success: theme.colors.successMain,
       white: theme.colors.paper,
       black: theme.colors.darkPaper,
     },

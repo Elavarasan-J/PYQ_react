@@ -14,6 +14,7 @@ import {
   OutlinedInput,
   Stack,
   Typography,
+  Alert,
 } from "@mui/material";
 
 // third party
@@ -70,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
 //============================|| FIREBASE - LOGIN ||============================//
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -91,8 +92,10 @@ const LoginForm = () => {
     <React.Fragment>
       <Formik
         initialValues={{
+          name: "",
           email: "",
           password: "",
+          phone: "",
           submit: null,
         }}
         validationSchema={Yup.object().shape({
@@ -103,7 +106,7 @@ const LoginForm = () => {
           password: Yup.string().max(255).required("Password is required"),
         })}
         onSubmit={(values, { setSubmitting, resetForm, setErrors }) => {
-          const url = Api.login;
+          const url = Api.register;
 
           const config = {
             headers: {
@@ -114,24 +117,11 @@ const LoginForm = () => {
           axios
             .post(url, values, config)
             .then((res) => {
-              console.log("res.data.token", res.data.token);
               if (res.status === 200) {
-                window.localStorage.setItem("token", res.data.token);
-                setSubmitting(false);
-                navigate(defaultPath);
-                console.log("Success");
               }
             })
             .catch((error) => {
               console.log(error);
-              if (error.response.status === 400) {
-                setErrors({ submit: "Invalid Credentials" });
-                setSubmitting(false);
-              } else {
-                resetForm();
-                setErrors({ submit: "Something went wrong" });
-                setSubmitting(false);
-              }
             });
         }}
       >
@@ -146,15 +136,37 @@ const LoginForm = () => {
         }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Typography variant="body1" fontWeight="400" mb={"5px"}>
-              Enter a valid email and password to log in securely.
+              Complete the following fields to create your account with us.
             </Typography>
             <FormControl
               fullWidth
               error={Boolean(touched.email && errors.email)}
               className={classes.loginInput}
             >
+              <InputLabel htmlFor="name">Name *</InputLabel>
+              <OutlinedInput
+                id="name"
+                type="text"
+                value={values.name}
+                name="name"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                label="Name *"
+                inputProps={{
+                  classes: {
+                    notchedOutline: classes.notchedOutline,
+                  },
+                }}
+              />
+            </FormControl>
+
+            <FormControl
+              fullWidth
+              error={Boolean(touched.email && errors.email)}
+              className={classes.loginInput}
+            >
               <InputLabel htmlFor="outlined-adornment-email-login">
-                Email Address
+                Email Address *
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-email-login"
@@ -163,21 +175,13 @@ const LoginForm = () => {
                 name="email"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                label="Email Address"
+                label="Email Address *"
                 inputProps={{
                   classes: {
                     notchedOutline: classes.notchedOutline,
                   },
                 }}
               />
-              {/* {touched.email && errors.email && (
-                <FormHelperText
-                  error
-                  id="standard-weight-helper-text-email-login"
-                >
-                  {errors.email}
-                </FormHelperText>
-              )} */}
             </FormControl>
 
             <FormControl
@@ -186,13 +190,13 @@ const LoginForm = () => {
               className={classes.loginInput}
             >
               <InputLabel htmlFor="outlined-adornment-password-login">
-                Password
+                Password *
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password-login"
                 type={showPassword ? "text" : "password"}
                 value={values.password}
-                name="password"
+                name="password *"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 endAdornment={
@@ -223,6 +227,29 @@ const LoginForm = () => {
                 </FormHelperText>
               )} */}
             </FormControl>
+
+            <FormControl
+              fullWidth
+              error={Boolean(touched.email && errors.email)}
+              className={classes.loginInput}
+            >
+              <InputLabel htmlFor="phone">Phone Number *</InputLabel>
+              <OutlinedInput
+                id="phone"
+                type="text"
+                value={values.phone}
+                name="phone"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                label="Phone *"
+                inputProps={{
+                  classes: {
+                    notchedOutline: classes.notchedOutline,
+                  },
+                }}
+              />
+            </FormControl>
+
             {/* <Stack
               direction="row"
               alignItems="center"
@@ -239,14 +266,18 @@ const LoginForm = () => {
               </Typography>
             </Stack> */}
             {errors.submit && (
-              <Box
+              <Alert
+                variant="filled"
+                severity="error"
                 sx={{
                   mt: 3,
                 }}
               >
-                <FormHelperText error>{errors.submit}</FormHelperText>
-              </Box>
+                {errors.submit}
+              </Alert>
             )}
+
+            {/* Success! You're now a registered member with us. */}
 
             <Box
               sx={{
@@ -263,7 +294,7 @@ const LoginForm = () => {
                 color="primary"
                 sx={{ textTransform: "uppercase", py: "10px" }}
               >
-                Sign in
+                Submit
               </Button>
             </Box>
           </form>
@@ -273,4 +304,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

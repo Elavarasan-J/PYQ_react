@@ -1,0 +1,47 @@
+[
+    {
+      "id": 5,
+      "name": "Policy",
+      "price": 142
+    },
+    {
+      "id": 6,
+      "name": "Population",
+      "price": 50
+    },
+    {
+      "id":7,
+      "name": "Income",
+      "price": 40
+    },
+    {
+        "id": 48,
+        "name": "Trade",
+        "price": 40
+    },
+    {
+        "id": 9,
+        "name": "Ambedkar",
+        "price": 40
+    },
+    {
+        "id": 10,
+        "name": "Gold",
+        "price": 40
+    },
+    {
+        "id": 11,
+        "name": "Census",
+        "price": 40
+    },
+    {
+        "id": 12,
+        "name": "Expenditure",
+        "price": 40
+    },
+    {
+        "id": 13,
+        "name": "Niti Aayog",
+        "price": 40
+    }
+  ]

@@ -53,12 +53,12 @@ export const themeTypography = (theme) => {
     subtitle2: {
       fontSize: "1.8rem",
       fontWeight: 400,
-      color: theme.darkTextSecondary,
+      color: theme.textDark,
       letterSpacing: "0.2px",
     },
     caption: {
       fontSize: "1.6rem",
-      color: theme.darkTextSecondary,
+      color: theme.textDark,
       fontWeight: 400,
       lineHeight: 1.2,
     },
@@ -72,7 +72,7 @@ export const themeTypography = (theme) => {
       fontWeight: 400,
       fontSize: "1.6rem",
       lineHeight: 1.2,
-      color: theme.darkTextPrimary,
+      color: theme.heading,
     },
     button: {
       //textTransform: "capitalize",

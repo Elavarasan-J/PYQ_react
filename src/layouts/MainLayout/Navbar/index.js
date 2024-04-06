@@ -5,32 +5,23 @@ import { menuItems } from "../../../menu-items";
 import { IconBrandHipchat } from "@tabler/icons";
 
 //Material UI
-import {
-  AppBar,
-  Container,
-  Toolbar,
-  Typography,
-  Box,
-  Badge,
-  Button,
-  Tooltip,
-  IconButton,
-  Avatar,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  Divider,
-  ClickAwayListener,
-} from "@mui/material";
+import { AppBar, Container, Toolbar, Box, Badge } from "@mui/material";
 import NavLogo from "./NavLogo";
 
 import { IconShoppingBag } from "@tabler/icons-react";
 import SocialIcons from "./SocialIcons";
 import HeroSection from "./HeroSection";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { showCartDialog } from "../../../redux/app/appSlice";
 
 const Navbar = () => {
   const { cartItems } = useSelector((state) => state.app);
+  const dispatch = useDispatch();
+
+  // CLICK - Open cart dialog
+  const handleCartOpen = () => {
+    dispatch(showCartDialog(true));
+  };
   return (
     <>
       <SocialIcons />
@@ -55,9 +46,13 @@ const Navbar = () => {
             >
               <NavLogo />
               <Badge
-                sx={{ "& .MuiBadge-badge": { fontSize: "1.4rem" } }}
+                sx={{
+                  cursor: "pointer",
+                  "& .MuiBadge-badge": { fontSize: "1.4rem" },
+                }}
                 badgeContent={cartItems.length ? cartItems.length : "0"}
                 color="primary"
+                onClick={handleCartOpen}
               >
                 <IconShoppingBag width={30} height={30} color="#ffffff" />
               </Badge>
